@@ -12,9 +12,12 @@ An interactive chess game with AI agent capabilities built using Python, pygame,
 - 🏆 **Game States**: Automatic detection of check, checkmate, stalemate, and draws
 
 ### Chess Engine
-- 🤖 **Board State Management**: Efficient board representation and move generation
-- 🧠 **AI Agent Framework**: Ready for implementing chess AI algorithms
-- 📊 **Position Evaluation**: Foundation for implementing position evaluation functions
+- 🤖 **AI Opponent**: Multiple difficulty levels with minimax algorithm
+- 🧠 **Smart Evaluation**: Position evaluation with material, mobility, and positional factors
+- ⚡ **Alpha-Beta Pruning**: Efficient search with move ordering optimization
+- 🎯 **Difficulty Levels**: Easy, Medium, Hard, and Expert modes
+- 📊 **Move Analysis**: Detailed analysis of moves with scoring
+- 🔄 **Flexible AI**: Toggle AI on/off, change difficulty, and switch colors during play
 
 ## Quick Start
 
@@ -37,14 +40,31 @@ pip install -r requirements.txt
 
 ### Running the Game
 
-Launch the interactive chess game:
+Launch the interactive chess game with AI:
+```bash
+python play_chess_ai.py
+```
+
+Or launch the basic version:
 ```bash
 python play_chess.py
 ```
 
-Or run the demo:
+Run the demo:
 ```bash
 python demo.py
+```
+
+#### AI Options
+```bash
+# Play against AI as black (medium difficulty)
+python play_chess_ai.py
+
+# Play as black against expert AI
+python play_chess_ai.py --difficulty expert --ai-color white
+
+# Human vs human mode
+python play_chess_ai.py --human-only
 ```
 
 ### Game Controls
@@ -57,6 +77,9 @@ python demo.py
 #### Keyboard Controls
 - **R**: Reset the game to starting position
 - **U**: Undo the last move
+- **A**: Toggle AI on/off
+- **C**: Toggle AI color (white/black)
+- **1-4**: Change AI difficulty (Easy/Medium/Hard/Expert)
 - **ESC/Close Window**: Quit the game
 
 ## Project Structure
@@ -71,14 +94,17 @@ chess-agent-project/
 │   │   └── board_state.py
 │   ├── gui/             # Graphical user interface
 │   │   ├── chess_gui.py
+│   │   ├── chess_gui_ai.py
 │   │   └── README.md
 │   └── utils/           # Utility functions
 │       └── move_generator.py
 ├── tests/               # Unit tests
 ├── requirements.txt     # Python dependencies
 ├── setup.py            # Package setup
-├── play_chess.py       # Game launcher
-└── demo.py             # Demo script
+├── play_chess.py       # Basic game launcher
+├── play_chess_ai.py    # AI game launcher
+├── demo.py             # Demo script
+└── AI_DOCUMENTATION.md # AI implementation details
 ```
 
 ## Development
@@ -101,11 +127,12 @@ python tests/test_board.py
 
 ## Future Enhancements
 
-- 🤖 AI opponent with different difficulty levels
 - 📁 Save and load games (PGN format)
 - 🎨 Customizable themes and piece sets
 - 🌐 Online multiplayer support
 - 📈 Game analysis and move suggestions
+- 📚 Opening book integration
+- 🏆 Endgame tablebase support
 
 ## Contributing
 
